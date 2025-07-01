@@ -13,5 +13,6 @@ WORKDIR /app
 COPY . .
 
 RUN composer install
+RUN php artisan migrate
 
-CMD ["bash", "-c","php artisan migrate", "make start"]
+CMD ["bash", "-c", "make start"]
