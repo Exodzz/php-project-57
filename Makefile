@@ -10,7 +10,7 @@ validate:
 	composer validate --strict
 
 lint:
-	composer exec --verbose phpcs -- --standard=PSR12 app public
+	composer exec --verbose phpcs -- --standard=PSR12 app
 
 lint-fix:
-	@composer exec --verbose phpcbf -- --standard=PSR12 app public
+	@composer exec --verbose phpcbf -- --standard=PSR12 app
