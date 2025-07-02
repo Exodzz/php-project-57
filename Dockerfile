@@ -15,3 +15,4 @@ COPY . .
 RUN composer install
 
 CMD ["bash", "-c", "make start"]
+CMD ["bash", "-c", "php artisan migrate"]
