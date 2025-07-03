@@ -20,7 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Принудительно использовать HTTPS для решения Mixed Content
-        URL::forceScheme('https');
+        // Принудительно использовать HTTPS только в продакшене
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 }
