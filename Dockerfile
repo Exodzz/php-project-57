@@ -17,8 +17,8 @@ WORKDIR /app
 
 COPY . .
 RUN composer install
-RUN npm cache clean --force
-RUN npm ci
-RUN npm run build
+#RUN npm cache clean --force
+#RUN npm ci
+#RUN npm run build
 
 CMD ["bash", "-c", "php artisan migrate --force && make start"]
