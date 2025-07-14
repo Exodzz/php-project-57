@@ -24,6 +24,9 @@ class TaskController extends Controller
         $statuses = TaskStatus::all();
         $users = User::all();
 
+        $authors = User::all();
+        $executors = User::all();
+
         $filter = $request->input('filter', []); // все параметры фильтра
 
         $tasks = QueryBuilder::for(Task::class)
@@ -42,6 +45,8 @@ class TaskController extends Controller
             'statuses' => $statuses,
             'users' => $users,
             'filter' => $filter,
+            'authors' => $authors,
+            'executors' => $executors,
         ]);
     }
 
