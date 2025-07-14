@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LabelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskStatusController;
@@ -7,7 +8,7 @@ use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return redirect('/');
@@ -21,6 +22,6 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('/task_statuses', TaskStatusController::class);
 Route::resource('/tasks', TaskController::class);
-Route::resource('/labels', \App\Http\Controllers\LabelController::class);
+Route::resource('/labels', LabelController::class);
 
 require __DIR__ . '/auth.php';

@@ -6,32 +6,37 @@
             </a>
 
             <div class="flex items-center lg:order-2">
-                <a href="/logout" onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();"
-                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
-                    Выход
-                </a>
-
-                <form id="logout-form" action="/logout" method="POST"
-                      style="display: none;">
-                    <input type="hidden" name="_token" value="ddcMguXc21b9VzJ2rIZONxhiPHr8pNybV80mPMuP"
-                           autocomplete="off"></form>
+                @auth
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Выйти
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Вход
+                    </a>
+                    <a href="{{ route('register') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
+                        Регистрация
+                    </a>
+                @endauth
             </div>
 
             <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
-                <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                <ul class="flex flex-col font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
-                        <a href="/tasks"
+                        <a href="{{ route('tasks.store') }}"
                            class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
                             Задачи </a>
                     </li>
                     <li>
-                        <a href="/task_statuses"
+                        <a href="{{ route('task_statuses.store') }}"
                            class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
                             Статусы </a>
                     </li>
                     <li>
-                        <a href="/labels"
+                        <a href="{{ route('labels.store') }}"
                            class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
                             Метки </a>
                     </li>

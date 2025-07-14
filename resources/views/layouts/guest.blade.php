@@ -1,49 +1,56 @@
-<nav class="bg-white shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
-            {{-- Название --}}
-            <div class="flex-shrink-0 flex items-center">
-                <a href="{{ url('/') }}" class="text-lg font-bold text-gray-800">
-                    Менеджер задач
-                </a>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="font-sans antialiased">
+<div class="min-h-screen bg-gray-100">
+    {{-- Навигация --}}
+    @include('layouts.navigation')
+
+    {{-- Флеш-сообщения --}}
+    @if (session()->has('flash_notification'))
+        <div class="max-w-7xl mx-auto px-4">
+            @include('flash::message')
+        </div>
+    @endif
+
+    {{-- Заголовок страницы --}}
+    @isset($header)
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
             </div>
+        </header>
+    @endisset
 
-            {{-- Навигационные ссылки --}}
-            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.*')">
-                    Задачи
-                </x-nav-link>
-                <x-nav-link :href="route('task_statuses.index')" :active="request()->routeIs('task_statuses.*')">
-                    Статусы
-                </x-nav-link>
-                <x-nav-link :href="route('labels.index')" :active="request()->routeIs('labels.*')">
-                    Метки
-                </x-nav-link>
-            </div>
-
-            {{-- Аутентификация --}}
-            <div class="flex items-center space-x-4">
-                @auth
-                    <a href="{{ route('logout') }}"
-                       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Выход
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-
-                @else
-                    <a href="{{ route('login') }}"
-                       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">
-                        Вход
-                    </a>
-                    <a href="{{ route('register') }}"
-                       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">
-                        Регистрация
-                    </a>
-                @endauth
+    {{-- Основной контент --}}
+    <section class="bg-white dark:bg-gray-900">
+        <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+            <div class="mr-auto place-self-center lg:col-span-7">
+                {{ $slot ?? '' }}
+                @yield('content')
             </div>
         </div>
-    </div>
-</nav>
+    </section>
+</div>
+</body>
+
+</html>
