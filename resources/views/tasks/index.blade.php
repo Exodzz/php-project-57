@@ -29,6 +29,12 @@
                 <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Применить</button>
             </form>
 
+            @auth
+                <a href="{{ route('tasks.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block">
+                    Создать задачу
+                </a>
+            @endauth
+
             <div class="bg-white shadow rounded overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-100">
@@ -51,8 +57,8 @@
                                         {{ $task->name }}
                                     </a>
                                 </td>
-                                <td class="px-4 py-2 text-sm">{{ $task->author->name ?? '' }}</td>
-                                <td class="px-4 py-2 text-sm">{{ $task->executor->name ?? '' }}</td>
+                                <td class="px-4 py-2 text-sm">{{ $task->creator->name ?? '' }}</td>
+                                <td class="px-4 py-2 text-sm">{{ $task->assignee->name ?? '' }}</td>
                                 <td class="px-4 py-2 text-sm">{{ $task->created_at->format('d.m.Y') }}</td>
                             </tr>
                         @endforeach

@@ -27,24 +27,21 @@ class TaskController extends Controller
         $authors = User::all();
         $executors = User::all();
 
-        $filter = $request->input('filter', []); // все параметры фильтра
-
         $tasks = QueryBuilder::for(Task::class)
             ->allowedFilters([
                 AllowedFilter::exact('status_id'),
-                AllowedFilter::exact('created_by_id'),
-                AllowedFilter::exact('assigned_to_id'),
+                AllowedFilter::exact('created_by_id', 'author_id'),
+                AllowedFilter::exact('assigned_to_id', 'executor_id'),
             ])
             ->with(['status', 'creator', 'assignee'])
             ->orderBy('id')
             ->paginate(15)
-            ->appends(['filter' => $filter]);
+            ->appends($request->all());
 
         return view('tasks.index', [
             'tasks' => $tasks,
             'statuses' => $statuses,
             'users' => $users,
-            'filter' => $filter,
             'authors' => $authors,
             'executors' => $executors,
         ]);
