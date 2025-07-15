@@ -6,24 +6,24 @@
     </x-slot>
 
     <div class="py-6">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div style="width: 1200px;max-width:100%"  class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form method="GET" class="flex flex-wrap gap-2 mb-6">
-                <select name="status_id" class="border rounded px-3 py-2">
+                <select name="filter[status_id]" class="border rounded px-3 py-2">
                     <option value="">Статус</option>
                     @foreach($statuses as $status)
-                        <option value="{{ $status->id }}" @selected(request('status_id') == $status->id)>{{ $status->name }}</option>
+                        <option value="{{ $status->id }}" @selected(request('filter.status_id') == $status->id)>{{ $status->name }}</option>
                     @endforeach
                 </select>
-                <select name="author_id" class="border rounded px-3 py-2">
+                <select name="filter[created_by_id]" class="border rounded px-3 py-2">
                     <option value="">Автор</option>
                     @foreach($authors as $author)
-                        <option value="{{ $author->id }}" @selected(request('author_id') == $author->id)>{{ $author->name }}</option>
+                        <option value="{{ $author->id }}" @selected(request('filter.created_by_id') == $author->id)>{{ $author->name }}</option>
                     @endforeach
                 </select>
-                <select name="executor_id" class="border rounded px-3 py-2">
+                <select name="filter[assigned_to_id]" class="border rounded px-3 py-2">
                     <option value="">Исполнитель</option>
                     @foreach($executors as $executor)
-                        <option value="{{ $executor->id }}" @selected(request('executor_id') == $executor->id)>{{ $executor->name }}</option>
+                        <option value="{{ $executor->id }}" @selected(request('filter.assigned_to_id') == $executor->id)>{{ $executor->name }}</option>
                     @endforeach
                 </select>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Применить</button>

@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-6">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div style="width: 1200px;max-width:100%" class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="mb-4">
                 @auth
                 <a href="{{ route('task_statuses.create') }}"
