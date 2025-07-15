@@ -22,7 +22,7 @@
                     @error('description') <p class="text-red-500 text-xs">{{ $message }}</p> @enderror
                 </div>
                 <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"
-                    type="submit">Обновить</button>
+                    type="submit">{{ __('messages.Update') }}</button>
             </form>
         </div>
     </div>

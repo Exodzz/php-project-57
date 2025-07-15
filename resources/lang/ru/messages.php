@@ -9,4 +9,8 @@ return [
     'email_password_reset_link' => 'Сбросить пароль',
     'Already registered?' => 'Уже зарегистрированы?',
     'Register' => 'Зарегистрировать',
+    'Create' => 'Создать',
+    'Update' => 'Обновить',
+    'Edit' => 'Изменить',
+    'Delete' => 'Удалить',
 ];
