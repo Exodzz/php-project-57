@@ -6,7 +6,9 @@
     </x-slot>
 
     <div class="py-6">
-        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+        <div style="
+    width: 1200px;
+" class=" mx-auto sm:px-6 lg:px-8">
             <form method="POST" action="{{ route('tasks.store') }}"
                 class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 @csrf

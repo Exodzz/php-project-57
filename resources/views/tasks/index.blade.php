@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-6">
-        <div style="width: 1200px;max-width:100%"  class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div style="width: 1200px;max-width:100%"  class=" mx-auto sm:px-6 lg:px-8">
             <form method="GET" class="flex flex-wrap gap-2 mb-6">
                 <select name="filter[status_id]" class="border rounded px-3 py-2">
                     <option value="">Статус</option>
