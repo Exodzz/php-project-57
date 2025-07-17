@@ -45,6 +45,7 @@
                             <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Автор</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Исполнитель</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Дата создания</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Действие</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
@@ -60,6 +61,11 @@
                                 <td class="px-4 py-2 text-sm">{{ $task->creator->name ?? '' }}</td>
                                 <td class="px-4 py-2 text-sm">{{ $task->assignee->name ?? '' }}</td>
                                 <td class="px-4 py-2 text-sm">{{ $task->created_at->format('d.m.Y') }}</td>
+                                <td class="px-4 py-2 text-sm">
+                                    <a href="{{ route('tasks.edit', $task) }}" class="text-blue-600 hover:underline">
+                                        {{__('messages.Edit')}}
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
