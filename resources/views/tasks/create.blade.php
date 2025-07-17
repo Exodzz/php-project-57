@@ -1,14 +1,13 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            Создать задачу
-        </h2>
-    </x-slot>
 
     <div class="py-6">
+
         <div style="
     width: 1200px;
 " class=" mx-auto sm:px-6 lg:px-8">
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">
+                Создать задачу
+            </h2>
             <form method="POST" action="{{ route('tasks.store') }}"
                 class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 @csrf
