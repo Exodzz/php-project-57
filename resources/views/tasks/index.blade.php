@@ -61,11 +61,13 @@
                                 <td class="px-4 py-2 text-sm">{{ $task->creator->name ?? '' }}</td>
                                 <td class="px-4 py-2 text-sm">{{ $task->assignee->name ?? '' }}</td>
                                 <td class="px-4 py-2 text-sm">{{ $task->created_at->format('d.m.Y') }}</td>
+                                @auth
                                 <td class="px-4 py-2 text-sm">
                                     <a href="{{ route('tasks.edit', $task) }}" class="text-blue-600 hover:underline">
                                         {{__('messages.Edit')}}
                                     </a>
                                 </td>
+                                @endauth
                             </tr>
                         @endforeach
                     </tbody>
