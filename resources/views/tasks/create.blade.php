@@ -13,27 +13,28 @@
                 @csrf
 
                 {{-- Название --}}
-                <div class="mb-4">
+                <div class="mb-2">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Имя</label>
                     <input id="name" name="name" type="text" value="{{ old('name') }}"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    @error('name')
-                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror
+
                 </div>
+                @error('name')
+                <div class="text-rose-600">{{ $message }}</div>
+                @enderror
 
                 {{-- Описание --}}
-                <div class="mb-4">
+                <div class="mb-2">
                     <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Описание</label>
                     <textarea id="description" name="description"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ old('description') }}</textarea>
-                    @error('description')
-                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror
                 </div>
+                @error('description')
+                <div class="text-rose-600">{{ $message }}</div>
+                @enderror
 
                 {{-- Статус --}}
-                <div class="mb-4">
+                <div class="mb-2">
                     <label for="status_id" class="block text-gray-700 text-sm font-bold mb-2">Статус</label>
                     <select name="status_id" id="status_id"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -44,13 +45,13 @@
                         </option>
                         @endforeach
                     </select>
-                    @error('status_id')
-                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror
                 </div>
+                @error('status_id')
+                <div class="text-rose-600">{{ $message }}</div>
+                @enderror
 
                 {{-- Исполнитель --}}
-                <div class="mb-4">
+                <div class="mb-2">
                     <label for="assigned_to_id" class="block text-gray-700 text-sm font-bold mb-2">Исполнитель</label>
                     <select name="assigned_to_id" id="assigned_to_id"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -61,13 +62,13 @@
                         </option>
                         @endforeach
                     </select>
-                    @error('assigned_to_id')
-                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror
                 </div>
+                @error('assigned_to_id')
+                <div class="text-rose-600">{{ $message }}</div>
+                @enderror
 
                 {{-- Метки --}}
-                <div class="mb-4">
+                <div class="mb-2">
                     <label for="labels" class="block text-gray-700 text-sm font-bold mb-2">Метки</label>
                     <select multiple name="labels[]" id="labels" size="4"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
