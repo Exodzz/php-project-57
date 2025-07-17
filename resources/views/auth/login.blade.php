@@ -61,7 +61,7 @@
                             </a>
                         @endif
 
-                        <x-primary-button class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-3">
+                        <x-primary-button class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-3" style="text-transform: unset">
                             {{ __('messages.Log in') }}
                         </x-primary-button>
                     </div>

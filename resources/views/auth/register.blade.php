@@ -68,7 +68,7 @@
                             {{ __('messages.Already registered?') }}
                         </a>
 
-                        <x-primary-button class="ms-4">
+                        <x-primary-button class="ms-4" style="text-transform: unset">
                             {{ __('messages.Register') }}
                         </x-primary-button>
                     </div>
