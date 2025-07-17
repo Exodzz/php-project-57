@@ -8,19 +8,19 @@
     <div class="py-6">
         <div style="width: 1200px;max-width:100%"  class=" mx-auto sm:px-6 lg:px-8">
             <form method="GET" class="flex flex-wrap gap-2 mb-6">
-                <select name="filter[status_id]" class="border rounded px-3 py-2">
+                <select id="filter[status_id]" name="filter[status_id]" class="border rounded px-3 py-2">
                     <option value="">Статус</option>
                     @foreach($statuses as $status)
                         <option value="{{ $status->id }}" @selected(request('filter.status_id') == $status->id)>{{ $status->name }}</option>
                     @endforeach
                 </select>
-                <select name="filter[created_by_id]" class="border rounded px-3 py-2">
+                <select  id="filter[created_by_id]" name="filter[created_by_id]" class="border rounded px-3 py-2">
                     <option value="">Автор</option>
                     @foreach($authors as $author)
                         <option value="{{ $author->id }}" @selected(request('filter.created_by_id') == $author->id)>{{ $author->name }}</option>
                     @endforeach
                 </select>
-                <select name="filter[assigned_to_id]" class="border rounded px-3 py-2">
+                <select  id="filter[assigned_to_id]" name="filter[assigned_to_id]" class="border rounded px-3 py-2">
                     <option value="">Исполнитель</option>
                     @foreach($executors as $executor)
                         <option value="{{ $executor->id }}" @selected(request('filter.assigned_to_id') == $executor->id)>{{ $executor->name }}</option>
