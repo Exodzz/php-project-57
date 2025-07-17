@@ -45,7 +45,9 @@
                             <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Автор</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Исполнитель</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Дата создания</th>
+                            @auth
                             <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Действие</th>
+                            @endauth
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
