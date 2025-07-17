@@ -97,10 +97,7 @@ class TaskController extends Controller
 
     public function destroy(Task $task, Request $request)
     {
-        if (Auth::id() !== $task->created_by_id) {
-            flash('Нет прав для этого действия')->error();
-            return redirect()->route('tasks.index', ['page' => $request->input('page', 1)]);
-        }
+        $this->authorize('delete', $task);
 
         $task->labels()->detach();
         $task->delete();

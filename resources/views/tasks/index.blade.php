@@ -65,9 +65,18 @@
                                 <td class="px-4 py-2 text-sm">{{ $task->created_at->format('d.m.Y') }}</td>
                                 @auth
                                 <td class="px-4 py-2 text-sm">
-                                    <a href="{{ route('tasks.edit', $task) }}" class="text-blue-600 hover:underline">
+                                    <a href="{{ route('tasks.edit', $task) }}" class="text-blue-600 hover:underline mr-2">
                                         {{__('messages.Edit')}}
                                     </a>
+                                    @if(Auth::id() === $task->created_by_id)
+                                        <form method="POST" action="{{ route('tasks.destroy', $task) }}" class="inline" onsubmit="return confirm('Вы уверены, что хотите удалить эту задачу?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 hover:text-red-800 hover:underline">
+                                                Удалить
+                                            </button>
+                                        </form>
+                                    @endif
                                 </td>
                                 @endauth
                             </tr>
