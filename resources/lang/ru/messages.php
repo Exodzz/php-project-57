@@ -5,6 +5,8 @@ return [
     'Remember_me' => 'Запомнить меня',
     'Forgot your password' => 'Забыли пароль?',
     'Log in' => 'Войти',
+    'out' => 'Выйти',
+    'register' => 'Регистрация',
     'errors_found' => 'Упс! Что-то пошло не так:',
     'email_password_reset_link' => 'Сбросить пароль',
     'Already registered?' => 'Уже зарегистрированы?',

@@ -7,18 +7,17 @@
 
             <div class="flex items-center lg:order-2">
                 @auth
-                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Выход
-                        </button>
-                    </form>
+                        <a href="{{ route('logout') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            {{ __('messages.out') }}
+                        </a>
                 @else
                     <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Вход
+                        {{ __('messages.Log in') }}
                     </a>
                     <a href="{{ route('register') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
-                        Регистрация
+                        {{ __('messages.register') }}
+
                     </a>
                 @endauth
             </div>
