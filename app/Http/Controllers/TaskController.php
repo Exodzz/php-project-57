@@ -63,12 +63,8 @@ class TaskController extends Controller
         $task = Task::create($validated);
         $task->labels()->sync($request->input('labels', []));
 
-        $perPage = 15;
-        $tasksCount = Task::count();
-        $lastPage = ceil($tasksCount / $perPage);
-
         flash('Задача успешно создана')->success();
-        return redirect()->route('tasks.index', ['page' => $lastPage]);
+        return redirect()->route('tasks.index');
     }
 
     public function show(Task $task)
@@ -103,6 +99,6 @@ class TaskController extends Controller
         $task->delete();
 
         flash('Задача успешно удалена')->success();
-        return redirect()->route('tasks.index', ['page' => $request->input('page', 1)]);
+        return redirect()->route('tasks.index');
     }
 }
