@@ -2,7 +2,9 @@
     <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900 shadow-md">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
             <a href="/" class="flex items-center">
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Менеджер задач</span>
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+                    {{ __('tasks.title') }}
+                </span>
             </a>
 
             <div class="flex items-center lg:order-2">
@@ -27,17 +29,17 @@
                     <li>
                         <a href="{{ route('tasks.index') }}"
                            class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                            Задачи </a>
+                            {{ __('tasks.tasks') }} </a>
                     </li>
                     <li>
                         <a href="{{ route('task_statuses.index') }}"
                            class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                            Статусы </a>
+                            {{ __('tasks.statuses') }} </a>
                     </li>
                     <li>
                         <a href="{{ route('labels.index') }}"
                            class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                            Метки </a>
+                            {{ __('tasks.labels') }} </a>
                     </li>
                 </ul>
             </div>
