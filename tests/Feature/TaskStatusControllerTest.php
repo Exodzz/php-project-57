@@ -69,7 +69,7 @@ class TaskStatusControllerTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user)
             ->post('/task_statuses', ['name' => 'Test Status']);
-        
+
         $response->assertRedirect('/task_statuses');
         $this->assertDatabaseHas('task_statuses', ['name' => 'Test Status']);
     }
@@ -78,7 +78,7 @@ class TaskStatusControllerTest extends TestCase
     {
         $user = User::factory()->create();
         $status = TaskStatus::factory()->create();
-        
+
         $response = $this->actingAs($user)->get("/task_statuses/{$status->id}/edit");
         $response->assertStatus(200);
     }
@@ -87,10 +87,10 @@ class TaskStatusControllerTest extends TestCase
     {
         $user = User::factory()->create();
         $status = TaskStatus::factory()->create();
-        
+
         $response = $this->actingAs($user)
             ->patch("/task_statuses/{$status->id}", ['name' => 'Updated Status']);
-        
+
         $response->assertRedirect('/task_statuses');
         $this->assertDatabaseHas('task_statuses', ['name' => 'Updated Status']);
     }
@@ -99,9 +99,9 @@ class TaskStatusControllerTest extends TestCase
     {
         $user = User::factory()->create();
         $status = TaskStatus::factory()->create();
-        
+
         $response = $this->actingAs($user)->delete("/task_statuses/{$status->id}");
-        
+
         $response->assertRedirect('/task_statuses');
         $this->assertDatabaseMissing('task_statuses', ['id' => $status->id]);
     }
@@ -111,7 +111,7 @@ class TaskStatusControllerTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user)
             ->post('/task_statuses', ['name' => '']);
-        
+
         $response->assertSessionHasErrors(['name']);
     }
 
@@ -119,10 +119,10 @@ class TaskStatusControllerTest extends TestCase
     {
         $user = User::factory()->create();
         TaskStatus::factory()->create(['name' => 'Test Status']);
-        
+
         $response = $this->actingAs($user)
             ->post('/task_statuses', ['name' => 'Test Status']);
-        
+
         $response->assertSessionHasErrors(['name']);
     }
 
@@ -130,10 +130,10 @@ class TaskStatusControllerTest extends TestCase
     {
         $user = User::factory()->create();
         $longName = str_repeat('a', 256);
-        
+
         $response = $this->actingAs($user)
             ->post('/task_statuses', ['name' => $longName]);
-        
+
         $response->assertSessionHasErrors(['name']);
     }
 }
