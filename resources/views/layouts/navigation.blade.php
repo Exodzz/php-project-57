@@ -10,9 +10,14 @@
             <div class="flex items-center lg:order-2">
                 @auth
                         @csrf
-                        <a href="{{ route('logout') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="{{ route('logout') }}" 
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             {{ __('messages.out') }}
                         </a>
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}" class="hidden">
+                            @csrf
+                        </form>
                 @else
                     <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         {{ __('messages.Log in') }}
