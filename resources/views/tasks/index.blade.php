@@ -7,6 +7,7 @@
 
     <div class="py-6">
         <div style="width: 1200px;max-width:100%"  class=" mx-auto sm:px-6 lg:px-8">
+        <div class="w-full flex items-center" style="justify-content: space-between;">
             <form method="GET" class="flex flex-wrap gap-2 mb-6">
                 <select id="filter[status_id]" name="filter[status_id]" class="border rounded px-3 py-2">
                     <option value="">Статус</option>
@@ -31,10 +32,10 @@
 
             @auth
                 <a href="{{ route('tasks.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block">
-                    Создать задачу
+                    {{__('messages.Add')}}
                 </a>
             @endauth
-
+        </div>
             <div class="bg-white shadow rounded overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-100">
@@ -72,7 +73,7 @@
                                         <a href="{{ route('tasks.delete', $task) }}"
                                            class="text-red-600 hover:text-red-800 hover:underline"
                                            onclick="return confirm('Вы уверены?')">
-                                            Удалить
+                                            {{__('messages.Delete')}}
                                         </a>
                                     @endif
                                 </td>
