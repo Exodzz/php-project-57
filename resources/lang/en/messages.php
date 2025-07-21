@@ -1,4 +1,5 @@
 <?php
+
 return [
     'h2_login' => 'Task manager',
     'password' => 'Password',
