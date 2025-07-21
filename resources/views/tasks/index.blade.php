@@ -69,13 +69,11 @@
                                         {{__('messages.Edit')}}
                                     </a>
                                     @if(Auth::id() === $task->created_by_id)
-                                        <form method="POST" action="{{ route('tasks.destroy', $task) }}" class="inline" onsubmit="return confirm('Вы уверены, что хотите удалить эту задачу?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="text-red-600 hover:text-red-800 hover:underline">
-                                                Удалить
-                                            </button>
-                                        </form>
+                                        <a href="{{ route('tasks.delete', $task) }}"
+                                           class="text-red-600 hover:text-red-800 hover:underline"
+                                           onclick="return confirm('Вы уверены?')">
+                                            Удалить
+                                        </a>
                                     @endif
                                 </td>
                                 @endauth
