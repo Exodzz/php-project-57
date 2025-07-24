@@ -15,8 +15,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="description" class="block text-sm font-bold mb-2">Описание</label>
-                    <input type="text" name="description" id="description" value="{{ old('description') }}"
-                        class="border rounded w-full p-2">
+                    <textarea class="border rounded w-full p-2" name="description" id="description">{{ old('description') }}</textarea>
                     @error('description') <p class="text-red-500 text-xs">{{ $message }}</p> @enderror
                 </div>
                 <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"
