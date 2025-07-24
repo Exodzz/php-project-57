@@ -11,7 +11,7 @@ class TaskValidationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_task_description_can_be_long(): void
+    public function testTaskDescriptionCanLong(): void
     {
         $user = User::factory()->create();
         $status = TaskStatus::factory()->create();
@@ -25,7 +25,7 @@ class TaskValidationTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    public function test_task_description_can_be_null(): void
+    public function testTaskDescriptionCanNull(): void
     {
         $user = User::factory()->create();
         $status = TaskStatus::factory()->create();
@@ -38,4 +38,4 @@ class TaskValidationTest extends TestCase
 
         $response->assertSessionHasNoErrors();
     }
-} 
+}
