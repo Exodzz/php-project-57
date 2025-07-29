@@ -14,7 +14,7 @@ class TaskDeleteTest extends TestCase
     public function testTaskCanBeDeletedWithDeleteMethod()
     {
         $user = User::factory()->create();
-        
+
         $task = Task::factory()->create([
             'created_by_id' => $user->id,
         ]);
@@ -33,7 +33,7 @@ class TaskDeleteTest extends TestCase
     public function testTaskCannotBeDeletedWithGetMethod()
     {
         $user = User::factory()->create();
-        
+
         $task = Task::factory()->create([
             'created_by_id' => $user->id,
         ]);
@@ -50,7 +50,7 @@ class TaskDeleteTest extends TestCase
     public function testUnauthorizedUserCannotDeleteTask()
     {
         $user = User::factory()->create();
-        
+
         $task = Task::factory()->create([
             'created_by_id' => User::factory()->create()->id,
         ]);
