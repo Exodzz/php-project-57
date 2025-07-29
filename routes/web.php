@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/task_statuses', TaskStatusController::class);
-Route::get('/tasks/{task}/delete', [TaskController::class, 'destroy'])->name('tasks.delete');
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 Route::resource('/tasks', TaskController::class);
 Route::resource('/labels', LabelController::class);
 

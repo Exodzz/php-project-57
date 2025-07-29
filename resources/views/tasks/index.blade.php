@@ -70,9 +70,13 @@
                                         {{__('messages.Edit')}}
                                     </a>
                                     @if(Auth::id() === $task->created_by_id)
-                                        <a href="{{ route('tasks.delete', $task) }}"
-                                           class="text-red-600 hover:text-red-800 hover:underline"
-                                           onclick="return confirm('Вы уверены?')">
+                                        <form id="delete-form-{{ $task->id }}" method="POST" action="{{ route('tasks.destroy', $task) }}" class="hidden">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                        <a href="#"
+                                           onclick="if(confirm('Вы уверены?'))document.getElementById('delete-form-{{ $task->id }}').submit(); return false;"
+                                           class="text-red-600 hover:text-red-800 hover:underline">
                                             {{__('messages.Delete')}}
                                         </a>
                                     @endif
@@ -85,4 +89,6 @@
             </div>
         </div>
     </div>
+
+
 </x-app-layout>
